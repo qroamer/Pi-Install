@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=VINO
+Comment=
+Exec=/usr/lib/vino/vino-server
+StartupNotify=false
+Terminal=false
+Hidden=false
