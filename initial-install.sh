@@ -73,7 +73,10 @@ echo "Network configuration Done"
 echo "Installing Vino"
 mkdir /home/pi/.config/autostart
 apt-get install -y vino dconf-tools
+<<<<<<< HEAD
 ##Don't forget to run dconf-editor afterwards
+=======
+>>>>>>> e97d2735a0e093830ef3a1f4d1adb972631fd290
 mv /home/pi/setup/vino.desktop /home/pi/.config/autostart/vino.desktop
 
 apt-get install -y htop
