@@ -31,32 +31,32 @@ do
     case $opt in
         eth0)
             echo "...Configuring network on Ethernet Connection 0/..."
-			#sed -i '***s/.*/***/' /home/pi/setup/dhcpcd.conf
-			sed -i "45s/.*/static ip_address=$mainip$netmask/" /home/pi/setup/dhcpcd.conf
-			sed -i "46s/.*/static routers=$gateway/" /home/pi/setup/dhcpcd.conf
-			sed -i "47s/.*/static domain_name_servers=8.8.8.8/" /home/pi/setup/dhcpcd.conf
-			mv /home/pi/setup/dhcpcd.conf /etc/dhcpcd.conf
+			#sed -i '***s/.*/***/' /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "45s/.*/static ip_address=$mainip$netmask/" /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "46s/.*/static routers=$gateway/" /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "47s/.*/static domain_name_servers=8.8.8.8/" /home/pi/Pi-Install/dhcpcd.conf
+			mv /home/pi/Pi-Install/dhcpcd.conf /etc/dhcpcd.conf
 			echo "Done"
 			break
 			;;
         wlan0)
             echo "...Configuring network on Wireless Lan 0"
-			sed -i "51s/.*/static ip_address=$mainip$netmask/" /home/pi/setup/dhcpcd.conf
-			sed -i "52s/.*/static routers=$gateway/" /home/pi/setup/dhcpcd.conf
-			sed -i "53s/.*/static domain_name_servers=8.8.8.8/" /home/pi/setup/dhcpcd.conf
-			mv /home/pi/setup/dhcpcd.conf /etc/dhcpcd.conf
+			sed -i "51s/.*/static ip_address=$mainip$netmask/" /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "52s/.*/static routers=$gateway/" /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "53s/.*/static domain_name_servers=8.8.8.8/" /home/pi/Pi-Install/dhcpcd.conf
+			mv /home/pi/Pi-Install/dhcpcd.conf /etc/dhcpcd.conf
 			echo "Done"
 			break
             ;;
 		Both)
 			echo "You decided to do Both"
-			sed -i "45s/.*/static ip_address=$mainip$netmask/" /home/pi/setup/dhcpcd.conf
-			sed -i "46s/.*/static routers=$gateway/" /home/pi/setup/dhcpcd.conf
-			sed -i "47s/.*/static domain_name_servers=8.8.8.8/" /home/pi/setup/dhcpcd.conf
-			sed -i "51s/.*/static ip_address=$mainip$netmask/" /home/pi/setup/dhcpcd.conf
-			sed -i "52s/.*/static routers=$gateway/" /home/pi/setup/dhcpcd.conf
-			sed -i "53s/.*/static domain_name_servers=8.8.8.8/" /home/pi/setup/dhcpcd.conf
-			mv /home/pi/setup/dhcpcd.conf /etc/dhcpcd.conf
+			sed -i "45s/.*/static ip_address=$mainip$netmask/" /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "46s/.*/static routers=$gateway/" /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "47s/.*/static domain_name_servers=8.8.8.8/" /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "51s/.*/static ip_address=$mainip$netmask/" /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "52s/.*/static routers=$gateway/" /home/pi/Pi-Install/dhcpcd.conf
+			sed -i "53s/.*/static domain_name_servers=8.8.8.8/" /home/pi/Pi-Install/dhcpcd.conf
+			mv /home/pi/Pi-Install/dhcpcd.conf /etc/dhcpcd.conf
 			echo "Done"
 			break
 			;;
@@ -74,7 +74,7 @@ echo "Installing Vino"
 mkdir /home/pi/.config/autostart
 apt-get install -y vino dconf-tools
 ##Don't forget to run dconf-editor afterwards
-mv /home/pi/setup/vino.desktop /home/pi/.config/autostart/vino.desktop
+mv /home/pi/Pi-Install/vino.desktop /home/pi/.config/autostart/vino.desktop
 
 apt-get install -y htop
 ###########################################################
@@ -102,6 +102,6 @@ sed -i '***s/.*/****/' /etc/motion/motion.conf
 sed -i '***s/.*/****/' /etc/motion/motion.conf
 
 
-#apt-get install -y 
+#apt-get install -y
 
 #etc.
