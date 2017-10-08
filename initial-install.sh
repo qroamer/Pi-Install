@@ -101,7 +101,5 @@ sed -i '***s/.*/****/' /etc/motion/motion.conf
 sed -i '***s/.*/****/' /etc/motion/motion.conf
 sed -i '***s/.*/****/' /etc/motion/motion.conf
 
-
 #apt-get install -y
-
 #etc.
