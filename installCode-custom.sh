@@ -27,7 +27,7 @@ sudo apt-get install -y vino dconf-tools
 ##Don't forget to run dconf-editor afterwards
 mv /home/pi/Pi-Install/vino.desktop /home/pi/.config/autostart/vino.desktop
 #install htop
-sudo apt-get install -y htop
+sudo apt-get install --force-yes htop
 sudo apt-get install -y ufw
 #ufw allow in on eth0 to any port 80 proto tcp
 sudo ufw default deny incoming
