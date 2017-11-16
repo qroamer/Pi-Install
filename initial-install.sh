@@ -4,13 +4,12 @@ systemctl enable ssh
 echo "Updating SED"
 
 apt-get update sed
-sudo cp /home/pi/files/sshd_conf /etc/ssh/sshd_conf
+sudo cp sshd_conf /etc/ssh/sshd_conf
 echo "re-starting SSH"
 sudo service ssh restart
 echo "SSH has been restarted with command 'service ssh restart'"
 #Change Keymap to US
 sed -i '6s/.*/XKBLAYOUT="us"/' /etc/default/keyboard
-
 #network Configuration
 echo "Network Configuration Settings: "
 echo "What do you want the IP to be?[88.88.88.88] "
