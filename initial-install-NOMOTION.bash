@@ -2,12 +2,16 @@
 echo "Enabling SSH"
 systemctl enable ssh
 echo "Updating SED"
-
 apt-get update sed
-sudo cp /home/pi/files/sshd_conf /etc/ssh/sshd_conf
+
+sed -i '28s/.*/PermitRootLogin no/' /etc/ssh/sshd_config
+sed -i '32s/.*/PubkeyAuthentication no/' /etc/ssh/sshd_config
+sed -i '52s/.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
 echo "re-starting SSH"
 sudo service ssh restart
 echo "SSH has been restarted with command 'service ssh restart'"
+
 #Change Keymap to US
 sed -i '6s/.*/XKBLAYOUT="us"/' /etc/default/keyboard
 
@@ -73,29 +77,6 @@ apt-get install -y vino dconf-tools
 mv /home/pi/Pi-Install/vino.desktop /home/pi/.config/autostart/vino.desktop
 
 apt-get install -y htop
-###########################################################
-# This will install the Motion server for webcam services #
-# If you do not want it, feel free to comment it out      #
-###########################################################
-sudo apt-get install -y motion
-
-# Configuring Motion server settings for outside access:
-#sed -i '***s/.*/****/' /etc/motion/motion.conf
-# This turns on the daemon
-sed -i "11s/.*/daemon on/" /etc/motion/motion.conf
-
-# Setting the logfile loction to "/etc/motion/motion.log
-sed -i '25s/.*/logfile /tmp/motion.log/' /etc/motion/motion.conf
-
-# Allow Localhost to access the Stream
-sed -i '476s/.*/stream_localhost off/' /etc/motion/motion.conf
-
-
-sed -i '463s/.*/stream_port 8081/' /etc/motion/motion.conf
-# sed -i '***s/.*/****/' /etc/motion/motion.conf
-# sed -i '***s/.*/****/' /etc/motion/motion.conf
-# sed -i '***s/.*/****/' /etc/motion/motion.conf
-# sed -i '***s/.*/****/' /etc/motion/motion.conf
 
 #apt-get install -y
 #etc.
