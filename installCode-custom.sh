@@ -30,9 +30,8 @@ mv /home/pi/Pi-Install/vino.desktop /home/pi/.config/autostart/vino.desktop
 apt-get install -y htop
 apt-get install ufw
 #ufw allow in on eth0 to any port 80 proto tcp
-ufw default deny incoming
-ufw default deny outgoing
-ufw allow in on eth0 to any port 22
-ufw allow in on eth0 to any port 5901
-ufw allow in on wlan0 to any port 53,80,443,123
-
+sudo ufw default deny incoming
+sudo ufw default deny outgoing
+sudo ufw allow in on eth0 to any port 22
+sudo ufw allow in on eth0 to any port 5901
+sudo ufw allow in on wlan0 to any port 53,80,443,123
