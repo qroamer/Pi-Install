@@ -29,10 +29,26 @@ mv /home/pi/Pi-Install/vino.desktop /home/pi/.config/autostart/vino.desktop
 #install htop
 sudo apt-get install --force-yes htop
 sudo apt-get install -y ufw
+#sed -i '33s/.*/#-A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT' /etc/ufw/before.rules
+#sed -i '34s/.*/#-A ufw-before-input -p icmp --icmp-type source-quench -j ACCEPT' /etc/ufw/before.rules
+#sed -i '35s/.*/#-A ufw-before-input -p icmp --icmp-type time-exceeded -j ACCEPT' /etc/ufw/before.rules
+#sed -i '36s/.*/#-A ufw-before-input -p icmp --icmp-type parameter-problem -j ACCEPT' /etc/ufw/before.rules
+#sed -i '37s/.*/#-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT' /etc/ufw/before.rules
 #ufw allow in on eth0 to any port 80 proto tcp
 sudo ufw default deny incoming
 sudo ufw default deny outgoing
 sudo ufw allow in on eth0 to any port 22
 sudo ufw allow in on eth0 to any port 5901
-sudo ufw allow in on wlan0 to any port 53,80,443,123 tcp
-sudo ufw allow in on wlan0 to any port 53,80,443,123 udp
+# sudo ufw allow in on wlan0 to any port 53
+# sudo ufw allow in on wlan0 to any port 80
+# sudo ufw allow in on wlan0 to any port 443
+# sudo ufw allow in on wlan0 to any port 123
+sudo ufw allow out on wlan0 to any port 53
+sudo ufw allow out on wlan0 to any port 80
+sudo ufw allow out on wlan0 to any port 443
+sudo ufw allow out on wlan0 to any port 123
+
+#allow ICMP out UFW:
+# ok icmp codes
+# 
+#33 - 37
