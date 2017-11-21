@@ -4,7 +4,7 @@ systemctl enable ssh
 #Install SED
 echo "Updating SED"
 sudo apt-get update sed
-sudo cp sshd_conf /etc/ssh/sshd_conf
+sudo cp sshd_conf /etc/ssh/
 echo "re-starting SSH"
 sudo service ssh restart
 echo "SSH has been restarted with command 'service ssh restart'"
