@@ -27,8 +27,8 @@ sudo apt-get upgrade
 #vino Screen Sharing setup
 
 echo "Installing Vino"
-mkdir /home/pi/.config/autostart
 sudo apt-get install -y vino
+mkdir /home/pi/.config/autostart/
 ##Don't forget to run dconf-editor afterwards
 mv /home/pi/Pi-Install/vino.desktop /home/pi/.config/autostart/vino.desktop
 #install htop
@@ -45,6 +45,7 @@ sudo ufw default deny incoming
 sudo ufw default deny outgoing
 sudo ufw allow in on eth0 to any port 22
 sudo ufw allow in on eth0 to any port 5901
+sudo ufw allow in on eth0 to any port 5900
 # sudo ufw allow in on wlan0 to any port 53
 # sudo ufw allow in on wlan0 to any port 80
 # sudo ufw allow in on wlan0 to any port 443
@@ -53,6 +54,7 @@ sudo ufw allow out on wlan0 to any port 53
 sudo ufw allow out on wlan0 to any port 80
 sudo ufw allow out on wlan0 to any port 443
 sudo ufw allow out on wlan0 to any port 123
+sudo ufw allow out on wlan0 to any port 22
 
 #allow ICMP out UFW:
 # ok icmp codes
