@@ -19,14 +19,20 @@ sed -i "47s/.*/static domain_name_servers=8.8.8.8/" /home/pi/Pi-Install/dhcpcd.c
 mv /home/pi/Pi-Install/dhcpcd.conf /etc/dhcpcd.conf
 #This just changes the eth0 to allow-hotplug
 mv /home/pi/Pi-Install/interfaces /etc/network/interfaces
+sudo service networking restart
 echo "Network configuration Done"
+#Updating the pi
+sudo apt-get update
+sudo apt-get upgrade
 #vino Screen Sharing setup
+
 echo "Installing Vino"
 mkdir /home/pi/.config/autostart
-sudo apt-get install -y vino dconf-tools
+sudo apt-get install -y vino
 ##Don't forget to run dconf-editor afterwards
 mv /home/pi/Pi-Install/vino.desktop /home/pi/.config/autostart/vino.desktop
 #install htop
+sudo apt-get install -y dconf-tools
 sudo apt-get install --force-yes htop
 sudo apt-get install -y ufw
 #sed -i '33s/.*/#-A ufw-before-input -p icmp --icmp-type destination-unreachable -j ACCEPT' /etc/ufw/before.rules
